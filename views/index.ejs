@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Stolen Data - Site B</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+  </head>
+  <body class="stolen">
+    <section class="stolen-title">
+      <h1>Stolen Data - Site B</h1>
+    </section>
+    <section>
+      <% if (maliciousLink) {%>
+      <a href="<%= maliciousLink %>">Visit this website!</a>
+      <% } %>
+
+      <table>
+        <thead>
+          <tr>
+            <th><h2>I stole data from Site A</h2></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% stolenData.forEach(data => {%>
+          <tr>
+            <td class="cell-breakWord "><%= data %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>Tom and Jerry The Movie - Review - Site A</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      body {
+        padding-top: 0px;
+      }
+      .thin {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      .search {
+        width: 716px;
+        border: none;
+        outline: none;
+      }
+      #search-form {
+        text-align: right;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      #search-result {
+        display: none;
+      }
+      #movie-data {
+        padding-bottom: 10px;
+        padding-bottom: 10px;
+        background: #fff;
+        border-radius: 3px;
+      }
+      .movie-image {
+        vertical-align: top;
+        max-width: 240px;
+        float: left;
+        margin-right: 20px;
+      }
+      #movie-details {
+        display: inline;
+      }
+      #search-term {
+        font-style: italic;
+      }
+      #comments div {
+        border: 1px solid #ddd;
+        width: 760px;
+        padding: 10px 0;
+        margin-bottom: 10px;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function search() {
+        const searchResult = document.getElementById("search-result");
+        const searchTerm = document.getElementById("search-term");
+        const keyword = document.getElementById("keyword");
+
+        const movieData = document.getElementById("movie-data");
+        const comments = document.getElementById("comments");
+
+        movieData.style.visibility = "hidden";
+        comments.style.visibility = "hidden";
+
+        searchResult.style.display = "block";
+        searchTerm.innerHTML = keyword.value;
+        return false;
+      }
+    </script>
+    <section class="title">
+      <h1>Tom and Jerry The Movie - Review</h1>
+      <form id="search-form" onsubmit="return search()">
+        <input
+          id="keyword"
+          type="text"
+          class="search"
+          placeholder="Search a movie"
+        /><button type="submit" class="thin">Search</button>
+      </form>
+    </section>
+    <section id="search-result">
+      You searched for <span id="search-term"></span>
+      <p>Searching...</p>
+    </section>
+    <section id="movie-data">
+      <img
+        class="movie-image"
+        src="https://flxt.tmsimg.com/assets/p14279_p_v10_aa.jpg"
+      />
+      <div id="movie-details">
+        <b>Title:</b> Tom and Jerry<br />
+        <b>Year:</b> 2021<br />
+        <b>Directed by:</b> Tim Story<br />
+        <b>Starring:</b> Chloë Grace Moretz, Michael Peña, Colin Jost | See full
+        cast & crew<br />
+        <b>Duration:</b> 127 min.<br />
+        <br />
+        <b>Plot:</b>
+        <p>
+          A chaotic battle ensues between Jerry Mouse, who has taken refuge in
+          the Royal Gate Hotel, and Tom Cat, who is hired to drive him away
+          before the day of a big wedding arrives.
+        </p>
+      </div>
+    </section>
+    <section id="comments">
+      <form>
+        <textarea name="newReview" placeholder="Add your review"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+      <!-- <textarea
+        name="newReview"
+        id="newReview"
+        placeholder="Add your review"
+      ></textarea>
+      <button type="button" id="addReview">Submit</button> -->
+      <h2>Comments</h2>
+      <dl>
+        $reviews$
+      </dl>
+    </section>
+    <!-- <script>
+      $("#addReview").click(function() {
+        var data = $("#newReview").val();
+        var finalData = data.indexOf("script") <= -1 ? data : null;
+        finalData
+          ? fetch("http://localhost:3000/?newReview=" + finalData)
+          : null;
+      });
+    </script> -->
+  </body>
+</html>
